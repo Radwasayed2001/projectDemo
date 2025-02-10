@@ -1,5 +1,5 @@
 .ui-wheel-of-fortune {
-  --_items: 12;
+  --_items: 29;
   all: unset;
   aspect-ratio: 1 / 1;
   container-type: inline-size;
@@ -86,3 +86,24 @@
 .ui-wheel-of-fortune li:nth-of-type(10) { --_idx: 10; }
 .ui-wheel-of-fortune li:nth-of-type(11) { --_idx: 11; }
 .ui-wheel-of-fortune li:nth-of-type(12) { --_idx: 12; }
+.ui-wheel-of-fortune li:nth-of-type(13) { --_idx: 13; }
+.ui-wheel-of-fortune li:nth-of-type(14) { --_idx: 14; }
+.ui-wheel-of-fortune li:nth-of-type(15) { --_idx: 15; }
+.ui-wheel-of-fortune li:nth-of-type(16) { --_idx: 16; }
+.ui-wheel-of-fortune li:nth-of-type(17) { --_idx: 17; }
+.ui-wheel-of-fortune li:nth-of-type(18) { --_idx: 18; }
+.ui-wheel-of-fortune li:nth-of-type(19) { --_idx: 19; }
+.ui-wheel-of-fortune li:nth-of-type(20) { --_idx: 20; }
+.ui-wheel-of-fortune li:nth-of-type(21) { --_idx: 21; }
+.ui-wheel-of-fortune li:nth-of-type(22) { --_idx: 22; }
+.ui-wheel-of-fortune li:nth-of-type(23) { --_idx: 23; }
+.ui-wheel-of-fortune li:nth-of-type(24) { --_idx: 24; }
+.ui-wheel-of-fortune li:nth-of-type(25) { --_idx: 25; }
+.ui-wheel-of-fortune li:nth-of-type(26) { --_idx: 26; }
+.ui-wheel-of-fortune li:nth-of-type(27) { --_idx: 27; }
+.ui-wheel-of-fortune li:nth-of-type(28) { --_idx: 28; }
+.ui-wheel-of-fortune li:nth-of-type(29) { --_idx: 29; }
+
+
+
+
