@@ -209,6 +209,16 @@ const value = (randomIndex);
 
   console.log(value)
   setTimeout(() => {
+    if (rechargeBtn.value == 0) {
+    Swal.fire({
+      title: 'Hard Luck',
+      text: 'Try again Tomorrow!',
+      showCloseButton: true,
+      showConfirmButton: true,
+      confirmButtonColor: 'rgb(254, 44, 85)'
+    });
+    return;
+  }
       Swal.fire({
           title: 'Congratulations!',
           text: `You won $${value}!`,
