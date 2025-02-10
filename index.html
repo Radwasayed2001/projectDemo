@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>TikTok Coins: Buy and Recharge Coins to Send Gifts</title>
+  <link rel="icon" href="img/icone.ico"/>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+  <header class="border-b border-gray-200 py-2">
+    <div class="flex">
+      <div class="hidden flex bg-gray-100 rounded-full hover:border hover:border-gray-500 transition-all duration-500 ease-in-out overflow-hidden w-md mx-auto font-[sans-serif] search-bar">
+        <input type="text" placeholder="Search"
+               class="w-full outline-none bg-gray-100 text-sm px-5 py-3 flex align-center" />
+        <button type="button" 
+                class="flex items-center justify-center bg-gray-100 border-r border-gray-400 px-4 py-2 transition-all duration-100 ease-in-out shadow-md hover:shadow-lg hover:bg-gray-200 hover:border-gray-500 cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="18px" 
+               class="fill-gray-600 transition-all duration-100 hover:fill-gray-800">
+            <path d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="upload-button mx-8">
+        <a href="#" class="upload-link">
+          <div class="upload-box">
+            <i class="fa-solid fa-plus"></i>&nbsp;
+            <span style="font-weight: bold;font-size: 0.9rem;">Upload</span>
+          </div>
+        </a>
+      </div>
+      <div class="message-button">
+        <div class="message-icon">
+          <a href="#"><img class="mess-img" src="img/message.webp" alt="Messages" width="50px"></a>
+        </div>
+        <div class="inbox-button">
+          <div class="inbox-icon">
+            <a href="#"><img class="inbox-img" src="img/inbox.png" alt="Inbox" width="25px"></a>
+          </div>
+        </div>
+        <div class="user-avatar">
+          <img class="p-img" src="img/logo.png" alt="Avatar" width="50px">
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="main-container" style="width: 100%; background-color: #f8f8f8;">
+    <main class="container mx-auto px-4 py-8 bg-white">
+      <!-- Hero / Info Section -->
+      <div class="p-6 mb-6">
+        <!-- Use flex-col on small screens and flex-row on md+ screens -->
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <h1 class="text-2xl font-bold text-gray-800">Get Coins</h1>
+            <button class="flex items-center space-x-1 px-2 py-1 text-sm rounded transition hover:bg-blue-700"
+                    style="background-color: rgba(11,224,155,0.12); color: #008568;">
+              <svg fill="currentColor" class="w-4 h-4" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.6 1.24c-6.47 5.47-12.29 6.74-15.34 7C6.06 8.34 5 9.32 5 10.53V23.2c0 14.16 14.76 21.85 18.26 23.47.47.22 1 .22 1.47 0C28.23 45.05 43 37.37 43 23.2V10.52c0-1.2-1.06-2.18-2.26-2.28-3.06-.26-8.88-1.53-15.35-7a2.17 2.17 0 0 0-2.79 0Zm5.62 12.46a4.83 4.83 0 0 0 4.86 4.8l-.04 3.45c-1.77 0-3.4-.53-4.75-1.43l-.09 6.99a6.64 6.64 0 0 1-6.69 6.3 6.44 6.44 0 0 1-6.53-6.45 6.63 6.63 0 0 1 7.61-6.4l-.04 3.7a2.93 2.93 0 0 0-3.88 2.7 2.85 2.85 0 0 0 2.89 2.85 2.93 2.93 0 0 0 2.96-2.85l.16-13.66h3.54Z"></path>
+              </svg>
+              <span>Secure Payment</span>
+            </button>
+          </div>
+          <!-- Add margin-top on small screens -->
+          <a href="#" class="flex items-center space-x-2 hover:underline mt-4 md:mt-0">
+            <span>Transaction History</span>
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        </div>
+        <p class="text-gray-600 mt-2">
+          Save about 25% with lower service fees for external transactions
+        </p>
+      </div>
+      
+      
+      
+
+      <div class="input-container flex flex-col space-y-4 mb-8">
+        <input
+            type="text"
+            id="username"
+            placeholder="Enter your username"
+            class="input2 w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            class="input2 w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <input
+            type="tel"
+            id="phone"
+            placeholder="Enter your phone number"
+            class="input2 w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button
+            class="buttonwaw w-full bg-[rgb(254,44,85)] text-white py-3 rounded-lg transition hover:bg-[rgb(220,40,80)]"
+        >
+            Verify
+        </button>
+    </div>
+      
+      
+      <div class="font-[sans-serif] p-4 mx-auto lg:max-w-5xl sm:max-w-2xl max-w-md">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="package cursor-pointer" data-amount="300.30">
+            <div style="align-items: center;" class="card bg-gray-100 h-full w-full flex flex-col border border-gray-200 rounded-lg p-4 text-center hover:shadow-xl transition transform hover:scale-105">
+              <div class="flex" style="align-items: center;">
+                <img src="img/dollar.png" alt="Coins" class="w-12 h-12">
+                <span class="block text-2xl font-bold text-black">30</span>
+              </div>
+              <span class="block text-sm text-gray-500">300.30 MAD</span>
+            </div>
+          </div>
+          <div class="package cursor-pointer" data-amount="3503.50">
+            <div style="align-items: center;" class="card bg-gray-100 h-full w-full flex flex-col border border-gray-200 rounded-lg p-4 text-center hover:shadow-xl transition transform hover:scale-105">
+              <div class="flex" style="align-items: center;">
+                <img src="img/dollar.png" alt="Coins" class="w-12 h-12">
+                <span class="block text-2xl font-bold text-black">350</span>
+              </div>
+              <span class="block text-sm text-gray-500">3503.50 MAD</span>
+            </div>
+          </div>
+          <div class="package cursor-pointer" data-amount="7007.00">
+            <div style="align-items: center;" class="card bg-gray-100 h-full w-full flex flex-col border border-gray-200 rounded-lg p-4 text-center hover:shadow-xl transition transform hover:scale-105">
+              <div class="flex" style="align-items: center;">
+                <img src="img/dollar.png" alt="Coins" class="w-12 h-12">
+                <span class="block text-2xl font-bold text-black">700</span>
+              </div>
+              <span class="block text-sm text-gray-500">7007.00 MAD</span>
+            </div>
+          </div>
+          <div class="package cursor-pointer" data-amount="14014.00">
+            <div style="align-items: center;" class="card bg-gray-100 h-full w-full flex flex-col border border-gray-200 rounded-lg p-4 text-center hover:shadow-xl transition transform hover:scale-105">
+              <div class="flex" style="align-items: center;">
+                <img src="img/dollar.png" alt="Coins" class="w-12 h-12">
+                <span class="block text-2xl font-bold text-black">1400</span>
+              </div>
+              <span class="block text-sm text-gray-500">14014.00 MAD</span>
+            </div>
+          </div>
+          <div class="package cursor-pointer" data-amount="35035.00">
+            <div style="align-items: center;" class="card bg-gray-100 h-full w-full flex flex-col border border-gray-200 rounded-lg p-4 text-center hover:shadow-xl transition transform hover:scale-105">
+              <div class="flex" style="align-items: center;">
+                <img src="img/dollar.png" alt="Coins" class="w-12 h-12">
+                <span class="block text-2xl font-bold text-black">3,500</span>
+              </div>
+              <span class="block text-sm text-gray-500">35035.00 MAD</span>
+            </div>
+          </div>
+          <div class="package cursor-pointer" data-amount="70070.00">
+            <div style="align-items: center;" class="card bg-gray-100 h-full w-full flex flex-col border border-gray-200 rounded-lg p-4 text-center hover:shadow-xl transition transform hover:scale-105">
+              <div class="flex" style="align-items: center;">
+                <img src="img/dollar.png" alt="Coins" class="w-12 h-12">
+                <span class="block text-2xl font-bold text-black">7,000</span>
+              </div>
+              <span class="block text-sm text-gray-500">70070.00 MAD</span>
+            </div>
+          </div>
+          <!-- Package 17500 -->
+          <div class="package cursor-pointer" data-amount="175175.00">
+            <div style="align-items: center;" class="card bg-gray-100 h-full w-full flex flex-col border border-gray-200 rounded-lg p-4 text-center hover:shadow-xl transition transform hover:scale-105">
+              <div class="flex" style="align-items: center;">
+                <img src="img/dollar.png" alt="Coins" class="w-12 h-12">
+                <span class="block text-2xl font-bold text-black">17,500</span>
+              </div>
+              <span class="block text-sm text-gray-500">175175.00 MAD</span>
+            </div>
+          </div>
+          <div id="custom-case" class="package cursor-pointer" data-amount="custom" onclick="toggleCustomInput()">
+            <div class="card bg-gray-100 h-full w-full flex flex-col border border-gray-200 rounded-lg p-4 text-center hover:shadow-xl transition transform hover:scale-105">
+              <div class="flex flex-col items-center">
+                <img src="img/dollar.png" alt="Coins" class="mx-auto w-12 h-12 mb-2">
+                <!-- This span will be replaced by an input on click -->
+                <span id="custom-text" class="block text-xl font-bold text-gray-800">Custom</span>
+<span id="custom-description" class="block text-sm text-gray-500">High amounts supported</span>
+</div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <fieldset class="ui-wheel-of-fortune">
+        <ul>
+          <li>$3000</li>
+          <li>$2000</li>
+          <li>$1000</li>
+          <li>$0</li>
+          <li>$11000</li>
+          <li>$10000</li>
+          <li>$9000</li>
+          <li>$8000</li>
+          <li>$7000</li>
+          <li>$6000</li>
+          <li>$5000</li>
+          <li>$4000</li>
+        </ul>
+        <button type="button">SPIN</button>
+    </fieldset>
+      <!-- Payment Gateways (hidden by default) -->
+      <div id="paymentGateways" class="mt-6" style="display: none;">
+        <p class="text-center font-medium mb-4">Payment Method</p>
+        <div class="flex justify-center space-x-4">
+          <img src="img/visa.png" alt="Visa" class="w-10 h-auto">
+          <img src="img/mc.png" alt="Mastercard" class="w-10 h-auto">
+          <img src="img/maestro.png" alt="Maestro" class="w-10 h-auto">
+          <img src="img/american.png" alt="American Express" class="w-10 h-auto">
+          <img src="img/paypal.png" alt="PayPal" class="w-10 h-auto">
+        </div>
+      </div>
+  <div id="overlay"></div>
+      
+      <!-- Recharge Button (disabled by default) -->
+      <button id="rechargeBtn" disabled
+              class="w-64 mt-6 text-white py-3 rounded-lg transition opacity-50 cursor-not-allowed"
+              style="background-color: rgb(254, 44, 85);">
+        Recharge
+      </button>
+    </main>
+  </div>
+  
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    const packages = document.querySelectorAll('.package');
+const rechargeBtn = document.getElementById('rechargeBtn');
+const paymentGateways = document.getElementById('paymentGateways');
+let selectedAmount = null;
+var costPerPiece = 0.012; // Example rate (if needed elsewhere)
+
+packages.forEach(pkg => {
+  pkg.addEventListener('click', () => {
+    // Remove selected style from all packages
+    packages.forEach(p => {
+      p.classList.remove('selected');
+      const card = p.querySelector('.card');
+      if (card) {
+        card.classList.remove('bg-red-100', 'border-red-300');
+        if (p.getAttribute('data-amount') !== 'custom') {
+          card.classList.add('bg-gray-100', 'border-gray-200');
+        }
+      }
+    });
+    
+    // Add selected style to clicked package
+    pkg.classList.add('selected');
+    const card = pkg.querySelector('.card');
+    if (card) {
+      card.classList.remove('bg-gray-100', 'border-gray-200');
+      card.classList.add('bg-red-100', 'border-red-300');
+    }
+    
+    // Show payment gateways
+    paymentGateways.style.display = 'block';
+    
+    // Set the selected amount based on the package type
+    const amount = pkg.getAttribute('data-amount');
+    if (amount === 'custom') {
+      // For custom package, wait for valid input from the custom input field.
+      selectedAmount = null;
+      rechargeBtn.disabled = true;
+      rechargeBtn.classList.add('opacity-50', 'cursor-not-allowed');
+      // Note: toggleCustomInput() is triggered separately by the custom package's onclick.
+    } else {
+      selectedAmount = amount;
+      rechargeBtn.disabled = false;
+      rechargeBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+    }
+  });
+});
+
+// Recharge button handler with username, email, and phone validation
+rechargeBtn.addEventListener('click', () => {
+  const username = document.getElementById('username').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+
+  if (username === "") {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Please enter your username!',
+      showCloseButton: true,
+      showCancelButton: false,
+      showConfirmButton: true,
+      confirmButtonColor: 'rgb(254, 44, 85)'
+    });
+    return;
+  }
+
+  if (email === "") {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Please enter your email!',
+      showCloseButton: true,
+      showCancelButton: false,
+      showConfirmButton: true,
+      confirmButtonColor: 'rgb(254, 44, 85)'
+    });
+    return;
+  }
+
+  if (phone === "") {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Please enter your phone number!',
+      showCloseButton: true,
+      showCancelButton: false,
+      showConfirmButton: true,
+      confirmButtonColor: 'rgb(254, 44, 85)'
+    });
+    return;
+  }
+
+  if (!selectedAmount) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Please select a valid package and enter a correct custom amount!',
+      showCloseButton: true,
+      showConfirmButton: true,
+      confirmButtonColor: 'rgb(254, 44, 85)'
+    });
+    return;
+  }
+  
+  Swal.fire({
+    icon: 'success',
+    title: 'Recharge Successful!',
+    html: `<p>Username: <strong>${username}</strong></p>
+           <p>Email: <strong>${email}</strong></p>
+           <p>Phone: <strong>${phone}</strong></p>
+           <p>Amount: <strong>${selectedAmount}</strong></p>`,
+    showConfirmButton: true,
+    showCloseButton: true,
+    confirmButtonColor: 'rgb(254, 44, 85)'
+  });
+  
+  document.getElementById("username").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("phone").value = "";
+  
+  // Reset selections and revert custom card if needed
+  packages.forEach(pkg => {
+    pkg.classList.remove('selected');
+    const card = pkg.querySelector('.card');
+    if (card) {
+      card.classList.remove('bg-red-100', 'border-red-300');
+      if (pkg.getAttribute('data-amount') !== 'custom') {
+        card.classList.add('bg-gray-100', 'border-gray-200');
+      }
+    }
+  });
+  
+  const customCard = document.querySelector('.package[data-amount="custom"] .card');
+  if (customCard) {
+    customCard.innerHTML = `
+      <img src="img/dollar.png" alt="Coins" class="mx-auto w-12 h-12 mb-2">
+      <span id="custom-text" class="block text-xl font-bold text-gray-800">Custom</span>
+      <span id="custom-description" class="block text-sm text-gray-500">High amounts supported</span>
+    `;
+  }
+  
+  selectedAmount = null;
+  rechargeBtn.disabled = true;
+  rechargeBtn.classList.add('opacity-50', 'cursor-not-allowed');
+  paymentGateways.style.display = 'none';
+});
+  </script>
+  <script src="./js/montantPerso.js"></script>
+  <script src="./script.js"></script>
+  
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</body>
+</html>
