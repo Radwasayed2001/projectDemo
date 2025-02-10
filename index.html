@@ -206,7 +206,7 @@ else if(choosenR>=81 && choosenR <=100){
   wheel.style.transform = `rotate(${degrees}deg)`;
 //   const value = (randomIndex % 10 + randomIndex /10)* Math.pow(randomIndex % 10);
 const value = (randomIndex);
-
+rechargeBtn.value = randomIndex;
   console.log(value)
   setTimeout(() => {
     if (rechargeBtn.value == 0) {
@@ -228,7 +228,6 @@ const value = (randomIndex);
       });
       rechargeBtn.disabled = false;
       rechargeBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-      rechargeBtn.value = randomIndex * 1000;
 
       
   }, 4000); // 4 seconds
