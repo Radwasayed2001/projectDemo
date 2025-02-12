@@ -344,6 +344,23 @@
       localStorage.setItem('username', username);
       localStorage.setItem('email', email);
       localStorage.setItem('phone', phone);
+      if(username && email && phone)
+      Swal.fire({
+              title: 'Success!',
+              text: `Data Verified Successfully!`,
+              icon: 'success',
+              confirmButtonText: 'Ok!',
+              confirmButtonColor: 'rgb(254, 44, 85)'
+          });
+      else{
+        Swal.fire({
+              title: 'Not Completed!',
+              text: `Fill All Data!`,
+              icon: 'error',
+              confirmButtonText: 'Ok!',
+              confirmButtonColor: 'rgb(254, 44, 85)'
+          });
+      }
     }
   </script>
   <script src="./js/montantPerso.js"></script>
