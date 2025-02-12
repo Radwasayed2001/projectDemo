@@ -51,7 +51,6 @@
     <main class="container mx-auto px-4 py-8 bg-white">
       <!-- Hero / Info Section -->
       <div class="p-6 mb-6">
-        <!-- Use flex-col on small screens and flex-row on md+ screens -->
         <div class="flex flex-col md:flex-row items-center justify-between">
           <div class="flex items-center space-x-4">
             <h1 class="text-2xl font-bold text-gray-800">Get Coins</h1>
@@ -63,7 +62,6 @@
               <span>Secure Payment</span>
             </button>
           </div>
-          <!-- Add margin-top on small screens -->
           <a href="#" class="flex items-center space-x-2 hover:underline mt-4 md:mt-0">
             <span>Transaction History</span>
             <i class="fa-solid fa-arrow-left"></i>
@@ -74,9 +72,7 @@
         </p>
       </div>
       
-      
-      
-
+      <!-- Input Container -->
       <div class="input-container flex flex-col space-y-4 mb-8">
         <input
             type="text"
@@ -96,17 +92,16 @@
             placeholder="Enter your phone number"
             class="input2 w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        <button
+        <button id="verify" onclick="verifyData()"
             class="buttonwaw text-xl font-bold w-full bg-[rgb(254,44,85)] text-white py-3 rounded-lg transition hover:bg-[rgb(220,40,80)]"
         >
             Verify
         </button>
-    </div>
+      </div>
       
       <div class="w-full mt-24 flex justify-center">
         <fieldset class="ui-wheel-of-fortune">
             <ul>
-              
               <li>$7</li>
               <li>$6</li>
               <li>$5</li>
@@ -137,7 +132,11 @@
               <li>$9</li>
               <li>$8</li>
             </ul>
-            <button type="button"><div  class="flex w-full justify-center"><img src="img/dollar.png" alt="Coins" class="w-12 h-12"></div></button>
+            <button type="button">
+              <div class="flex w-full justify-center">
+                <img src="img/dollar.png" alt="Coins" class="w-12 h-12">
+              </div>
+            </button>
         </fieldset>
       </div>
       
@@ -152,7 +151,7 @@
           <img src="img/paypal.png" alt="PayPal" class="w-10 h-auto">
         </div>
       </div>
-  <div id="overlay"></div>
+      <div id="overlay"></div>
       
       <!-- Recharge Button (disabled by default) -->
       <button id="rechargeBtn" disabled
@@ -167,49 +166,81 @@
   <!-- SweetAlert2 JS -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-    
     const packages = document.querySelectorAll('.package');
-const rechargeBtn = document.getElementById('rechargeBtn');
-const paymentGateways = document.getElementById('paymentGateways');
-let selectedAmount = null;
-var costPerPiece = 0.012; // Example rate (if needed elsewhere)
-document.querySelector('.ui-wheel-of-fortune button').addEventListener('click', function() {
-  const rechargeBtn = document.getElementById('rechargeBtn');
-  rechargeBtn.disabled = false;
-  const wheel = document.querySelector('.ui-wheel-of-fortune ul');
-  const segments = 29;
-  const values = [0, 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100, 200];
-  let randomIndex = Math.floor(Math.random() * segments);
-  let arr = [];
-  let bt60200 = [60, 70, 80, 90, 100 , 200]
-for(let i =1; i<=100; i++){
-    arr.push(i)
-}
-let choosenR = arr[Math.floor(Math.random() * arr.length)];
-console.log(choosenR);
-if(choosenR >=1 && choosenR <=70) {
-    randomIndex = 0;
-}
-else if(choosenR>=71 && choosenR <=78){
-    randomIndex = Math.floor(Math.random() * 10) + 1;
-}
-else if(choosenR>=79 && choosenR <=80){
-    randomIndex = ((Math.floor(Math.random() * 5) + 1) * 10);
-}
-else if(choosenR>=81 && choosenR <=100){
-    randomIndex = bt60200[Math.floor(Math.random() * bt60200.length)];
-}
-  const degrees = 360 * 5 + (360 / segments) * values.indexOf(randomIndex); // 5 full rotations + segment rotation
-  console.log(randomIndex);
+    const rechargeBtn = document.getElementById('rechargeBtn');
+    const paymentGateways = document.getElementById('paymentGateways');
+    let selectedAmount = null;
+    var costPerPiece = 0.012; // Example rate (if needed elsewhere)
+    
+    // تعديل: التأكد من أن المستخدم قد قام بالتحقق (verify) قبل دوران العجلة
+    document.querySelector('.ui-wheel-of-fortune button').addEventListener('click', function() {
+      // التحقق من وجود البيانات في localStorage
+      const storedUsername = localStorage.getItem('username');
+      const storedEmail = localStorage.getItem('email');
+      const storedPhone = localStorage.getItem('phone');
+      
+      if (!storedUsername || !storedEmail || !storedPhone || storedEmail!=document.getElementById('email').value.trim()) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Verification Required',
+          text: 'You have to verify your information first!'
+        });
+        return;
+      }
+      if (localStorage.getItem(storedEmail)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'You Have Spin The Wheel Today',
+          text: 'Come Back Tomorrow!'
+        });
+        return;
+      }
+      const today = new Date();
 
-  wheel.style.transition = 'transform 4s ease-out';
-  wheel.style.transform = `rotate(${degrees}deg)`;
-//   const value = (randomIndex % 10 + randomIndex /10)* Math.pow(randomIndex % 10);
-const value = (randomIndex);
-rechargeBtn.value = randomIndex;
-  console.log(value)
-  setTimeout(() => {
-    if (rechargeBtn.value == 0) {
+      const day = today.getDate();
+      const month = today.getMonth() + 1;
+      const year = today.getFullYear();
+
+      const formattedDate = `${day}-${month}-${year}`;
+
+      localStorage.setItem(storedEmail, formattedDate)
+
+      // استكمال دوران العجلة
+      rechargeBtn.disabled = false;
+      const wheel = document.querySelector('.ui-wheel-of-fortune ul');
+      const segments = 29;
+      const values = [0, 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100, 200];
+      let randomIndex = Math.floor(Math.random() * segments);
+      let arr = [];
+      let bt60200 = [60, 70, 80, 90, 100 , 200];
+      for(let i = 1; i <= 100; i++){
+          arr.push(i);
+      }
+      let choosenR = arr[Math.floor(Math.random() * arr.length)];
+      console.log(choosenR);
+      if(choosenR >= 1 && choosenR <= 70) {
+          randomIndex = 0;
+      }
+      else if(choosenR >= 71 && choosenR <= 78){
+          randomIndex = Math.floor(Math.random() * 10) + 1;
+      }
+      else if(choosenR >= 79 && choosenR <= 80){
+          randomIndex = ((Math.floor(Math.random() * 5) + 1) * 10);
+      }
+      else if(choosenR >= 81 && choosenR <= 100){
+          randomIndex = bt60200[Math.floor(Math.random() * bt60200.length)];
+      }
+      const degrees = 360 * 5 + (360 / segments) * values.indexOf(randomIndex); // 5 full rotations + segment rotation
+      console.log(randomIndex);
+    
+      wheel.style.transition = 'transform 4s ease-out';
+      wheel.style.transform = `rotate(${degrees}deg)`;
+      const value = randomIndex;
+      console.log(value);
+      rechargeBtn.value = randomIndex;
+
+      setTimeout(() => {
+        if (rechargeBtn.value == 0) {
     Swal.fire({
       title: 'Hard Luck',
       text: 'Try again Tomorrow!',
@@ -219,99 +250,101 @@ rechargeBtn.value = randomIndex;
     });
     return;
   }
-      Swal.fire({
-          title: 'Congratulations!',
-          text: `You won $${value}!`,
-          icon: 'success',
-          confirmButtonText: 'Awesome!',
+          Swal.fire({
+              title: 'Congratulations!',
+              text: `You won $${value}!`,
+              icon: 'success',
+              confirmButtonText: 'Awesome!',
+              confirmButtonColor: 'rgb(254, 44, 85)'
+          });
+          rechargeBtn.disabled = false;
+          rechargeBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      }, 4000); // 4 seconds
+    });
+    
+    rechargeBtn.addEventListener('click', () => {
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+    
+      if (username === "") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Please enter your username!',
+          showCloseButton: true,
           confirmButtonColor: 'rgb(254, 44, 85)'
-      });
-      rechargeBtn.disabled = false;
-      rechargeBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-
+        });
+        return;
+      }
+    
+      if (email === "") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Please enter your email!',
+          showCloseButton: true,
+          confirmButtonColor: 'rgb(254, 44, 85)'
+        });
+        return;
+      }
+    
+      if (phone === "") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Please enter your phone number!',
+          showCloseButton: true,
+          confirmButtonColor: 'rgb(254, 44, 85)'
+        });
+        return;
+      }
+    
+      if (!rechargeBtn.value) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Please select a valid package and enter a correct custom amount!',
+          showCloseButton: true,
+          confirmButtonColor: 'rgb(254, 44, 85)'
+        });
+        return;
+      }
       
-  }, 4000); // 4 seconds
-  
-});
-rechargeBtn.addEventListener('click', () => {
-  const username = document.getElementById('username').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-
-  if (username === "") {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error',
-      text: 'Please enter your username!',
-      showCloseButton: true,
-      showCancelButton: false,
-      showConfirmButton: true,
-      confirmButtonColor: 'rgb(254, 44, 85)'
+      Swal.fire({
+        icon: 'success',
+        title: 'Recharge Successful!',
+        html: `<p>Username: <strong>${username}</strong></p>
+               <p>Email: <strong>${email}</strong></p>
+               <p>Phone: <strong>${phone}</strong></p>
+               <p>Amount: <strong>${rechargeBtn.value}</strong></p>`,
+        showConfirmButton: true,
+        showCloseButton: true,
+        confirmButtonColor: 'rgb(254, 44, 85)'
+      });
+      
+      document.getElementById("username").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("phone").value = "";
+      localStorage.removeItem('username');
+      localStorage.removeItem('email');
+      localStorage.removeItem('phone');
+      // Reset selections and revert custom card if needed
+      selectedAmount = null;
+      rechargeBtn.disabled = true;
+      rechargeBtn.classList.add('opacity-50', 'cursor-not-allowed');
+      paymentGateways.style.display = 'none';
     });
-    return;
-  }
-
-  if (email === "") {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error',
-      text: 'Please enter your email!',
-      showCloseButton: true,
-      showCancelButton: false,
-      showConfirmButton: true,
-      confirmButtonColor: 'rgb(254, 44, 85)'
-    });
-    return;
-  }
-
-  if (phone === "") {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error',
-      text: 'Please enter your phone number!',
-      showCloseButton: true,
-      showCancelButton: false,
-      showConfirmButton: true,
-      confirmButtonColor: 'rgb(254, 44, 85)'
-    });
-    return;
-  }
-
-  if (!rechargeBtn.value) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error',
-      text: 'Please select a valid package and enter a correct custom amount!',
-      showCloseButton: true,
-      showConfirmButton: true,
-      confirmButtonColor: 'rgb(254, 44, 85)'
-    });
-    return;
-  }
-  
-  Swal.fire({
-    icon: 'success',
-    title: 'Recharge Successful!',
-    html: `<p>Username: <strong>${username}</strong></p>
-           <p>Email: <strong>${email}</strong></p>
-           <p>Phone: <strong>${phone}</strong></p>
-           <p>Amount: <strong>${rechargeBtn.value}</strong></p>`,
-    showConfirmButton: true,
-    showCloseButton: true,
-    confirmButtonColor: 'rgb(254, 44, 85)'
-  });
-  
-  document.getElementById("username").value = "";
-  document.getElementById("email").value = "";
-  document.getElementById("phone").value = "";
-  
-  // Reset selections and revert custom card if needed
-  
-  selectedAmount = null;
-  rechargeBtn.disabled = true;
-  rechargeBtn.classList.add('opacity-50', 'cursor-not-allowed');
-  paymentGateways.style.display = 'none';
-});
+    
+    function verifyData(){
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      
+      localStorage.setItem('username', username);
+      localStorage.setItem('email', email);
+      localStorage.setItem('phone', phone);
+    }
   </script>
   <script src="./js/montantPerso.js"></script>
   
